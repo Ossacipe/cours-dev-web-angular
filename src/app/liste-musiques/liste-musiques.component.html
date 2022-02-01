@@ -3,9 +3,9 @@
 <section>
   <span>
     {musics?.length, plural,
-      =0 {Aucune musique trouvée}
-      =1 {1 Musique trouvée}
-      other {{{ musics?.length }} Musiques trouvées}}
+      =0 {{{ 'drawer.NoMusicFound' | translate }}}
+      =1 {{{ 'drawer.OneMusicFound' | translate }} }
+      other {{{ musics?.length }} {{ 'drawer.MusicsFound' | translate }}}}
   </span>
 </section>
 

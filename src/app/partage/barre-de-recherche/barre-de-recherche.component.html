@@ -4,7 +4,7 @@
     <mat-form-field class="example-full-width" appearance="fill" style="width:100% !important">
 
       <mat-label>
-          Rechercher musique
+        {{ 'drawer.SearchMusic' | translate }}
       </mat-label>
 
       <input type="text"
@@ -15,8 +15,8 @@
 
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let music of filteredMusics | async" [value]="music?.title">
-          <img mat-card-avatar src="{{music?.photo}}" alt="Avatar de l'employé" class="avatar-barre-recherche"/>
-          <span>{{music?.nom + ' ' + music?.prenom}}</span>
+          <img mat-card-avatar src="{{music?.picture}}" alt="Avatar de la musique" class="avatar-barre-recherche"/>
+          <span>{{music?.title}}</span>
         </mat-option>
       </mat-autocomplete>
 

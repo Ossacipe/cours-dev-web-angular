@@ -5,5 +5,42 @@
 
   "drawer.accueil": "Accueil",
   "drawer.listMusic": "Liste des Musiques",
-  "drawer.contact": "Contact"
+  "drawer.contact": "Contact",
+  "drawer.SearchMusic": "Chercher une musique",
+  "drawer.RequiredTitle": "Le titre est obligatoire",
+  "drawer.TitleCondition": "Le titre doit avoir au moins 2 caractères",
+  "drawer.RequiredDescription": "La description est obligatoire",
+  "drawer.DescriptionCondition": "La description doit avoir au moins 2 caractères",
+  "drawer.RequiredAlbum": "L'album est obligatoire",
+  "drawer.AlbumCondition": "L'album doit avoir au moins 2 caractères",
+  "drawer.RequiredArtist": "L'artiste est obligatoire",
+  "drawer.ArtistCondition": "L'artiste doit avoir au moins 2 caractères",
+  "drawer.RequiredDuration": "La durée est obligatoire",
+  "drawer.RequiredDate": "La date est obligatoire",
+  "drawer.Cancel": "Annuler",
+  "drawer.Validate": "Valider",
+  "drawer.AddMusic": "Ajouter une musique",
+  "drawer.GoContent": "Aller au contenu",
+  "drawer.NoMusicFound": "Aucune musique trouvée",
+  "drawer.OneMusicFound": "1 Musique trouvée",
+  "drawer.MusicsFound": " Musiques trouvées",
+  "drawer.NoMusicInBase": " Aucune musique actuellement en base",
+  "drawer.Description": "Description",
+  "drawer.Album": "Album",
+  "drawer.Artist": "Artiste",
+  "drawer.Duration": "Durée",
+  "drawer.Date": "Date",
+  "drawer.Style": "Style :",
+  "drawer.Title": "Titre",
+  "drawer.Contact": "Les contacts fonctionnent"
+
+
+
+
+
+
+
+
+
+
 }
