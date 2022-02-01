@@ -1,4 +1,4 @@
-<barre-de-recherche [music]="musics" (typing)="personnelFiltered($event)"></barre-de-recherche>
+<barre-de-recherche [music]="musics" (typing)="musicsFiltered($event)"></barre-de-recherche>
 
 <section>
   <span>
@@ -11,16 +11,16 @@
 
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <carte [employe]="employe" (personDelete)="delete($event)" (personUpdate)="update($event)" *ngFor="let employe of personnel" ></carte>
+    <carte [music]="music" (musicDelete)="delete($event)" (musicUpdate)="update($event)" *ngFor="let music of musics" ></carte>
   </section>
 
   <section *ngSwitchCase="'list'">
     <mat-list>
       <mat-list-item *ngFor="let music of musics" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ employe.photo }}" alt="Avatar de l'employé"/>
-        <h3 mat-line>{{ employe.prenom }} {{ employe.nom }} </h3>
+        <img mat-list-avatar src="{{ music.picture }}" alt="Avatar de l'employé"/>
+        <h3 mat-line>{{ music.title }} </h3>
         <p mat-line>
-          <span> {{ employe.email }} </span> — <span>{{ employe.telephone }} </span>
+          <span> {{ music.email }} </span> — <span>{{ music.telephone }} </span>
         </p>
       </mat-list-item>
     </mat-list>

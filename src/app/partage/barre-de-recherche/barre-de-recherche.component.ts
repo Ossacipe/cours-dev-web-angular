@@ -12,12 +12,12 @@ import {catchError, debounceTime, distinctUntilChanged, Observable, of, Subscrip
 export class BarreDeRechercheComponent implements OnInit, OnDestroy {
 
   barreDeRecherche = new FormControl();
-  filteredPersonnel!: Observable<any[]>;
+  filteredMusics!: Observable<any[]>;
 
-  filteredPersonnelSubscription: Subscription | null = null;
+  filteredMusicsSubscription: Subscription | null = null;
   musicServiceSubscription: Subscription | null = null;
 
-  @Input() personnel: any[] = [];
+  @Input() musics: any[] = [];
 
   @Output() readonly typing = new EventEmitter<any[]>();
 
@@ -26,7 +26,7 @@ export class BarreDeRechercheComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.filteredPersonnel = this.barreDeRecherche.valueChanges.pipe(
+    this.filteredMusics = this.barreDeRecherche.valueChanges.pipe(
       debounceTime(400),
       distinctUntilChanged(),
       switchMap(value => {
@@ -40,20 +40,20 @@ export class BarreDeRechercheComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.filteredPersonnelSubscription = this.filteredPersonnel.subscribe({
-      next: personnel => this.typing.emit(personnel)
+    this.filteredMusicsSubscription = this.filteredMusics.subscribe({
+      next: musics => this.typing.emit(musics)
     });
 
     this.musicServiceSubscription = this.musicService.musics$.subscribe({
       next: () => {
-        this.musicService.fetch().pipe(take(1)).subscribe(personnel => this.personnel = personnel);
+        this.musicService.fetch().pipe(take(1)).subscribe(musics => this.musics = musics);
         this.barreDeRecherche.setValue('');
       }
     });
   }
 
   ngOnDestroy() {
-    this.filteredPersonnelSubscription?.unsubscribe();
+    this.filteredMusicsSubscription?.unsubscribe();
     this.musicServiceSubscription?.unsubscribe();
   }
 
