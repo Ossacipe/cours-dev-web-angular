@@ -71,7 +71,7 @@
       <p>
         <mat-form-field class="chip-list" >
           <mat-label>Style :</mat-label>
-          <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
+          <mat-chip-list #chipList aria-label="Styles musicaux">
             <mat-chip *ngFor="let style of musicModel.styles" (removed)="removeChipset(style)" >
               {{style}}
               <button matChipRemove>
