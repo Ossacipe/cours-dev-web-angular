@@ -15,15 +15,21 @@
   </section>
 
   <section *ngSwitchCase="'list'">
-    <mat-list>
-      <mat-list-item *ngFor="let music of musics" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ music.picture }}" alt="Avatar de l'employé"/>
-        <h3 mat-line>{{ music.title }} </h3>
-        <p mat-line>
-          <span> {{ music.album }} </span> — <span>{{ music.artist }} </span>
-        </p>
-      </mat-list-item>
-    </mat-list>
+    <table class="center" style="border:1px solid black;margin-left:auto;margin-right:auto;padding: 5px">
+      <tr>
+        <th>Title</th>
+        <th>Album</th>
+        <th>Artiste</th>
+        <th>Description</th>
+      </tr>
+      <tr *ngFor="let music of musics">
+        <td>{{music?.title}}</td>
+        <td>{{music?.album}}</td>
+        <td>{{music?.artist}}</td>
+        <td>{{music?.description}}</td>
+      </tr>
+    </table>
+
   </section>
 </section>
 
