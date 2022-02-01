@@ -17,7 +17,7 @@ export interface Music {
 @Injectable({
   providedIn: 'root'
 })
-export class MusicServiceService {
+export class MusicService {
 
   private musics = new BehaviorSubject<string>('');
 
