@@ -70,7 +70,7 @@
 
       <p>
         <mat-form-field class="chip-list" >
-          <mat-label><mat-icon>work</mat-icon> Fonctions :</mat-label>
+          <mat-label>Style :</mat-label>
           <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
             <mat-chip *ngFor="let style of musicModel.styles" (removed)="removeChipset(style)" >
               {{style}}
@@ -78,7 +78,7 @@
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-chip>
-            <input placeholder="Ex: Chirurgien..."
+            <input placeholder="Ex: Rock..."
                    [matChipInputFor]="chipList"
                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                    (matChipInputTokenEnd)="addChipset($event)">
@@ -86,19 +86,19 @@
         </mat-form-field>
       </p>
 
-      <input #fileInput type="text"  name="photo" style="display: none;" accept=".png,.jpg" />
+      <p>
+        <mat-form-field class="picture" >
+          <mat-label>Image</mat-label>
+          <input formControlName="picture" name="picture" matInput required/>
+          <mat-error *ngIf="form.get('picture')!.dirty && form.get('picture')!.errors?.['required']"><br />L'image est obligatoire</mat-error>
+        </mat-form-field>
+      </p>
+
       <div *ngIf="musicModel.picture" >
         <img width="100" src="{{musicModel.picture}}" alt="Photo de l'employé" /> <br>
         <button mat-flat-button color="warn" >
           <mat-icon>
             cancel
-          </mat-icon>
-        </button>
-      </div>
-      <div class="file-upload" *ngIf="!musicModel.picture">
-        <button type="button" (click)="fileInput.click()" mat-fab>
-          <mat-icon>
-            image
           </mat-icon>
         </button>
       </div>

@@ -76,14 +76,13 @@ export class FormulaireComponent implements OnInit {
   private static buildForm(): FormGroup {
     return new FormGroup({
       id: new FormControl(''),
-      title: new FormControl(''),
-      description: new FormControl(''),
-      album: new FormControl(''),
-      artist: new FormControl(''),
-      duration: new FormControl(''),
-      date: new FormControl(''),
+      title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      description: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      album: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      artist: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      duration: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
       style: new FormControl(''),
-      picture: new FormControl(''),
     });
   }
 
