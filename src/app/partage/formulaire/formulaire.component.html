@@ -69,7 +69,7 @@
       <input #fileInput type="text"  name="photo" style="display: none;" accept=".png,.jpg" />
       <div *ngIf="musicModel.picture" >
         <img width="100" src="{{musicModel.picture}}" alt="Photo de l'employé" /> <br>
-        <button mat-flat-button color="warn" (click)="musicModel.picture = null;">
+        <button mat-flat-button color="warn" >
           <mat-icon>
             cancel
           </mat-icon>
