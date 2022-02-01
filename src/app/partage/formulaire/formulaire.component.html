@@ -86,22 +86,23 @@
         </mat-form-field>
       </p>
 
-      <p>
-        <mat-form-field class="picture" >
-          <mat-label>Image</mat-label>
-          <input formControlName="picture" name="picture" matInput required/>
-          <mat-error *ngIf="form.get('picture')!.dirty && form.get('picture')!.errors?.['required']"><br />L'image est obligatoire</mat-error>
-        </mat-form-field>
-      </p>
-
+      <input #fileInput type="file" (change)="onFileSelected($event)"  name="photo" style="display: none;" accept=".png,.jpg" />
       <div *ngIf="musicModel.picture" >
-        <img width="100" src="{{musicModel.picture}}" alt="Photo de l'employé" /> <br>
-        <button mat-flat-button color="warn" >
+        <img width="100" src="{{musicModel.picture}}" alt="Pochette de l'album" /> <br>
+        <button mat-flat-button color="warn" (click)="musicModel.picture = null;">
           <mat-icon>
             cancel
           </mat-icon>
         </button>
       </div>
+      <div class="file-upload" *ngIf="!musicModel.picture">
+        <button type="button" (click)="fileInput.click()" mat-fab>
+          <mat-icon>
+            image
+          </mat-icon>
+        </button>
+      </div>
+
     </form>
   </mat-card-content>
 

@@ -11,7 +11,7 @@ export interface Music {
   duration?: string;
   date?: string;
   styles?: string[];
-  picture?: string | undefined;
+  picture?: string | ArrayBuffer | null;
 }
 
 @Injectable({
