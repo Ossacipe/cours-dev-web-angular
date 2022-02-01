@@ -53,7 +53,6 @@ export class FormulaireComponent implements OnInit {
     this.submitEvent$.emit(music);
   }
 
-
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
@@ -62,8 +61,8 @@ export class FormulaireComponent implements OnInit {
     event.chipInput!.clear();
   }
 
-  removeChipset(style: any): void {
-    const index = this.musicModel.styles!.indexOf(style);
+  removeChipset(titre: any): void {
+    const index = this.musicModel.styles!.indexOf(titre);
     this.musicModel.styles!.splice(index, 1);
   }
 
