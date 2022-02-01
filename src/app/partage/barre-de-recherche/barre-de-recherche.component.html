@@ -4,7 +4,7 @@
     <mat-form-field class="example-full-width" appearance="fill" style="width:100% !important">
 
       <mat-label>
-          Rechercher employé
+          Rechercher musique
       </mat-label>
 
       <input type="text"
@@ -14,9 +14,9 @@
              [matAutocomplete]="auto">
 
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let employe of filteredPersonnel | async" [value]="employe?.nom + ' ' + employe?.prenom">
-          <img mat-card-avatar src="{{employe?.photo}}" alt="Avatar de l'employé" class="avatar-barre-recherche"/>
-          <span>{{employe?.nom + ' ' + employe?.prenom}}</span>
+        <mat-option *ngFor="let music of filteredMusics | async" [value]="music?.title">
+          <img mat-card-avatar src="{{music?.photo}}" alt="Avatar de l'employé" class="avatar-barre-recherche"/>
+          <span>{{music?.nom + ' ' + music?.prenom}}</span>
         </mat-option>
       </mat-autocomplete>
 

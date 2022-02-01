@@ -6,15 +6,13 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {AccueilComponent} from './accueil/accueil.component';
-import {GraphComponent} from './graph/graph.component';
 import {CarteComponent} from './partage/carte/carte.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {ListPersonnelComponent} from './list-personnel/list-personnel.component';
 import {FormulaireComponent} from './partage/formulaire/formulaire.component';
-import {AjoutPopupComponent} from './list-personnel/ajout-popup/ajout-popup.component';
+import {AjoutPopupComponent} from './liste-musiques/ajout-popup/ajout-popup.component';
 import {MatListModule} from "@angular/material/list";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatDialogModule} from "@angular/material/dialog";
@@ -31,7 +29,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import {NgxEchartsModule} from "ngx-echarts";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatGridListModule} from "@angular/material/grid-list";
-import { EditionComponent } from './list-personnel/edition/edition.component';
+import { EditionComponent } from './liste-musiques/edition/edition.component';
 import { LangueBoutonComponent } from './langue-bouton/langue-bouton.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -46,9 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     AccueilComponent,
-    GraphComponent,
     CarteComponent,
-    ListPersonnelComponent,
     FormulaireComponent,
     AjoutPopupComponent,
     ContactComponent,
