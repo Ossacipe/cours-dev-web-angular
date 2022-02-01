@@ -24,7 +24,7 @@ export class FormulaireComponent implements OnInit {
     this.cancelEvent$ = new EventEmitter();
     this.form = FormulaireComponent.buildForm();
     this.musicModel = {
-      style: []
+      styles: []
     };
   }
 
@@ -39,7 +39,7 @@ export class FormulaireComponent implements OnInit {
       artist: this.musicModel.artist,
       duration: this.musicModel.duration,
       date: this.musicModel.date,
-      style: this.musicModel.style || [],
+      styles: this.musicModel.styles || [],
       picture: this.musicModel.picture,
     });
   }
@@ -57,14 +57,14 @@ export class FormulaireComponent implements OnInit {
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
-      this.musicModel.style!.push(value);
+      this.musicModel.styles!.push(value);
     }
     event.chipInput!.clear();
   }
 
   removeChipset(style: any): void {
-    const index = this.musicModel.style!.indexOf(style);
-    this.musicModel.style!.splice(index, 1);
+    const index = this.musicModel.styles!.indexOf(style);
+    this.musicModel.styles!.splice(index, 1);
   }
 
   /**

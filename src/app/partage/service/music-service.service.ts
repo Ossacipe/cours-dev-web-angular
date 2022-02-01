@@ -10,7 +10,7 @@ export interface Music {
   artist?: string;
   duration?: string;
   date?: string;
-  style?: string[];
+  styles?: string[];
   picture?: string | undefined;
 }
 
