@@ -67,19 +67,6 @@ export class FormulaireComponent implements OnInit {
     this.musicModel.style!.splice(index, 1);
   }
 
-  onFileSelected(event:Event | null) {
-    const files = (<HTMLInputElement>event?.currentTarget).files;
-    const file:File | null = files!.item(0);
-
-    if (file) {
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (_event) => {
-          this.musicModel.picture = reader.result;
-        }
-    }
-  }
-
   /**
    * Fonction pour construire notre formulaire
    * @returns {FormGroup}

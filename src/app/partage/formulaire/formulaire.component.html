@@ -66,7 +66,7 @@
         </mat-form-field>
       </p>
 
-      <input #fileInput type="file" (change)="onFileSelected($event)"  name="photo" style="display: none;" accept=".png,.jpg" />
+      <input #fileInput type="text"  name="photo" style="display: none;" accept=".png,.jpg" />
       <div *ngIf="employeModel.photo" >
         <img width="100" src="{{employeModel.photo}}" alt="Photo de l'employé" /> <br>
         <button mat-flat-button color="warn" (click)="employeModel.photo = null;">
