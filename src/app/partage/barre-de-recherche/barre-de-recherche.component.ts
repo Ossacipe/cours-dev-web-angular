@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl} from "@angular/forms";
-import {ListPersonnelService} from "../service/list-personnel.service";
+import {MusicService} from "../service/music-service.service";
 import {catchError, debounceTime, distinctUntilChanged, Observable, of, Subscription, switchMap, take} from "rxjs";
+
 
 @Component({
   selector: 'barre-de-recherche',
@@ -14,14 +15,14 @@ export class BarreDeRechercheComponent implements OnInit, OnDestroy {
   filteredPersonnel!: Observable<any[]>;
 
   filteredPersonnelSubscription: Subscription | null = null;
-  listPersonneServiceSubscription: Subscription | null = null;
+  musicServiceSubscription: Subscription | null = null;
 
   @Input() personnel: any[] = [];
 
   @Output() readonly typing = new EventEmitter<any[]>();
 
   constructor(
-    private readonly listPersonneService: ListPersonnelService) {
+    private readonly musicService: MusicService) {
   }
 
   ngOnInit(): void {
@@ -30,11 +31,11 @@ export class BarreDeRechercheComponent implements OnInit, OnDestroy {
       distinctUntilChanged(),
       switchMap(value => {
         if (value) {
-          return this.listPersonneService.search(value).pipe(
+          return this.musicService.search(value).pipe(
             catchError(() => of([]))
           );
         } else {
-          return this.listPersonneService.fetch();
+          return this.musicService.fetch();
         }
       })
     );
@@ -43,9 +44,9 @@ export class BarreDeRechercheComponent implements OnInit, OnDestroy {
       next: personnel => this.typing.emit(personnel)
     });
 
-    this.listPersonneServiceSubscription = this.listPersonneService.employees$.subscribe({
+    this.musicServiceSubscription = this.musicService.musics$.subscribe({
       next: () => {
-        this.listPersonneService.fetch().pipe(take(1)).subscribe(personnel => this.personnel = personnel);
+        this.musicService.fetch().pipe(take(1)).subscribe(personnel => this.personnel = personnel);
         this.barreDeRecherche.setValue('');
       }
     });
@@ -53,7 +54,7 @@ export class BarreDeRechercheComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.filteredPersonnelSubscription?.unsubscribe();
-    this.listPersonneServiceSubscription?.unsubscribe();
+    this.musicServiceSubscription?.unsubscribe();
   }
 
 }
