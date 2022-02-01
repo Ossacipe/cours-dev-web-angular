@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ListPersonnelService, Person} from "../../partage/service/list-personnel.service";
+import {MusicService, Music} from "../../partage/service/music-service.service";
 
 @Component({
   selector: 'app-edition',
@@ -9,7 +9,7 @@ import {ListPersonnelService, Person} from "../../partage/service/list-personnel
 })
 export class EditionComponent implements OnInit {
 
-  employe: Person;
+  music: Music;
 
   /**
    * Component constructor
@@ -17,26 +17,26 @@ export class EditionComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly listPersonnelService: ListPersonnelService
+    private readonly musicService: MusicService
   ) {
-    this.employe = {};
+    this.music = {};
   }
 
   /**
    * OnInit implementation
    */
   ngOnInit() {
-    this.route.data.subscribe(( employe: any) => (this.employe = employe.employe));
+    this.route.data.subscribe(( music: any) => (this.music = music.music));
   }
 
-  submit(employe: any) {
-    this.listPersonnelService.update(employe).subscribe(() => {
-      this.router.navigate(['/listPersonnel']).then(r => null);
+  submit(music: any) {
+    this.musicService.update(music).subscribe(() => {
+      this.router.navigate(['/listMusic']).then(r => null);
     });
   }
 
   cancel() {
-    this.router.navigate(['/listPersonnel']).then(r => null);
+    this.router.navigate(['/listMusic']).then(r => null);
   }
 
 }
