@@ -1,5 +1,5 @@
 <mat-card class="mat-whiteframe-2dp">
-  <mat-card-title> <span>➕ Créer un(e) employé(e)</span> </mat-card-title>
+  <mat-card-title> <span>➕ Créer une musique</span> </mat-card-title>
 
   <mat-card-content>
     <form novalidate [formGroup]="form">
@@ -52,8 +52,8 @@
         <mat-form-field class="chip-list" >
           <mat-label><mat-icon>work</mat-icon> Fonctions :</mat-label>
           <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
-            <mat-chip *ngFor="let titre of employeModel.titres" (removed)="removeChipset(titre)" >
-              {{titre}}
+            <mat-chip *ngFor="let style of musicModel.style" (removed)="removeChipset(style)" >
+              {{style}}
               <button matChipRemove>
                 <mat-icon>cancel</mat-icon>
               </button>
@@ -67,15 +67,15 @@
       </p>
 
       <input #fileInput type="text"  name="photo" style="display: none;" accept=".png,.jpg" />
-      <div *ngIf="employeModel.photo" >
-        <img width="100" src="{{employeModel.photo}}" alt="Photo de l'employé" /> <br>
-        <button mat-flat-button color="warn" (click)="employeModel.photo = null;">
+      <div *ngIf="musicModel.picture" >
+        <img width="100" src="{{musicModel.picture}}" alt="Photo de l'employé" /> <br>
+        <button mat-flat-button color="warn" (click)="musicModel.picture = null;">
           <mat-icon>
             cancel
           </mat-icon>
         </button>
       </div>
-      <div class="file-upload" *ngIf="!employeModel.photo">
+      <div class="file-upload" *ngIf="!musicModel.picture">
         <button type="button" (click)="fileInput.click()" mat-fab>
           <mat-icon>
             image
