@@ -17,10 +17,10 @@
   <section *ngSwitchCase="'list'">
     <table class="center" style="border:1px solid black;margin-left:auto;margin-right:auto;padding: 5px">
       <tr>
-        <th>Title</th>
-        <th>Album</th>
-        <th>Artiste</th>
-        <th>Description</th>
+        <th>{{ 'drawer.Title' | translate }}</th>
+        <th>{{ 'drawer.Album' | translate }}</th>
+        <th>{{ 'drawer.Artist' | translate }}</th>
+        <th>{{ 'drawer.Description' | translate }}</th>
       </tr>
       <tr *ngFor="let music of musics">
         <td>{{music?.title}}</td>
