@@ -1,22 +1,22 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
-import {ListPersonnelService, Person} from "../service/list-personnel.service";
+import {MusicService, Music} from "../service/music-service.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeDetailResolverResolver implements Resolve<Person> {
+export class EmployeDetailResolverResolver implements Resolve<Music> {
 
-  constructor(private readonly peopleService: ListPersonnelService) {
+  constructor(private readonly musicService: MusicService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Person> {
-    const employeId: string | null = route.paramMap.get('id');
-    if(employeId != null){
-      return this.peopleService.fetchOne(employeId);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Music> {
+    const musicId: string | null = route.paramMap.get('id');
+    if(musicId != null){
+      return this.musicService.fetchOne(musicId);
     }
     else
-      return new Observable<Person>();
+      return new Observable<Music>();
   }
 }
