@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EmployeDetailResolverResolver } from './employe-detail-resolver.resolver';
+import { MusicDetailResolverResolver } from './music-detail-resolver.resolver';
 
 describe('EmployeDetailResolverResolver', () => {
-  let resolver: EmployeDetailResolverResolver;
+  let resolver: MusicDetailResolverResolver;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    resolver = TestBed.inject(EmployeDetailResolverResolver);
+    resolver = TestBed.inject(MusicDetailResolverResolver);
   });
 
   it('should be created', () => {
